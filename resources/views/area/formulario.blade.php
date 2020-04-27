@@ -12,24 +12,18 @@
   </head>
   <body>
     <div class="container">
-      <h1>Listagem de áreas</h1>
-      <a href="{{ action('AreaController@novo')}}" class="btn btn-primary">Nova Área</a>
-      <table class="table table-striped table-bordered table-sm">
-        <thead class="thead-dark">
-          <tr>
-            <td>ID</td>
-            <td>Descrição</td>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($areas as $area)
-            <tr>
-              <td>{{ $area->id }}</td>
-              <td>{{ $area->descricao }}</td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
+      <form action="{{ action('AreaController@gravar') }}" method="POST">
+        @csrf
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input readonly type="text" class="form-control" id="id" name="id">
+        </div>
+        <div class="form-group">
+          <label for="descricao">descricao</label>
+          <input type="text" class="form-control" id="descricao" name="descricao">
+        </div>
+        <button type="submit" class="btn btn-primary">Gravar</button>
+      </form>
     </div>
 
     <!-- Optional JavaScript -->

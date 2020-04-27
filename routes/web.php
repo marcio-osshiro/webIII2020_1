@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/area', 'AreaController@lista');
+Route::get('/area/novo', 'AreaController@novo');
+Route::post('/area/gravar', 'AreaController@gravar');
