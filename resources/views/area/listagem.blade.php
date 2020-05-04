@@ -19,6 +19,7 @@
           <tr>
             <td>ID</td>
             <td>Descrição</td>
+            <td></td>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,10 @@
             <tr>
               <td>{{ $area->id }}</td>
               <td>{{ $area->descricao }}</td>
+              <td>
+                <a href="{{action('AreaController@editar', $area->id)}}">Editar</a>
+                <a href="{{action('AreaController@excluir', $area->id)}}">Excluir</a>
+              </td>
             </tr>
           @endforeach
         </tbody>

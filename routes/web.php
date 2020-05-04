@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/area', 'AreaController@lista');
 Route::get('/area/novo', 'AreaController@novo');
 Route::post('/area/gravar', 'AreaController@gravar');
+Route::get('/area/editar/{id}', 'AreaController@editar');
+Route::get('/area/excluir/{id}', 'AreaController@excluir');
