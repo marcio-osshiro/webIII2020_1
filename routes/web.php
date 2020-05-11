@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index.inicio');
 });
 
 Route::get('/area', 'AreaController@lista');
@@ -22,3 +22,9 @@ Route::get('/area/novo', 'AreaController@novo');
 Route::post('/area/gravar', 'AreaController@gravar');
 Route::get('/area/editar/{id}', 'AreaController@editar');
 Route::get('/area/excluir/{id}', 'AreaController@excluir');
+
+Route::get('/professor', 'ProfessorController@lista');
+Route::get('/professor/novo', 'ProfessorController@novo');
+Route::post('/professor/gravar', 'ProfessorController@gravar');
+Route::get('/professor/editar/{id}', 'ProfessorController@editar');
+Route::get('/professor/excluir/{id}', 'ProfessorController@excluir');

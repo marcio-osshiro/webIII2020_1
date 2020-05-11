@@ -9,7 +9,6 @@ class AreaController extends Controller
 {
     //
     function lista() {
-      $area = new Area();
       $areas = Area::all();
       // visão localizado em resources/views
       return view("area.listagem", compact('areas'));
