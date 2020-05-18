@@ -11,4 +11,9 @@ class Area extends Model
 
     // não vou utilizar controle de alteração de registros
     public $timestamps = false;
+
+    public function professores()
+    {
+        return $this->hasMany('App\Professor');
+    }
 }

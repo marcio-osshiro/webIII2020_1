@@ -12,4 +12,9 @@ class Professor extends Model
 
     // não vou utilizar controle de alteração de registros
     public $timestamps = false;
+
+    public function area()
+    {
+        return $this->belongsTo('App\Area');
+    }
 }
