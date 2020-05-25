@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Professor;
 use App\Area;
 use Illuminate\Support\Str;
-
+use App\Http\Requests\ProfessorRequest;
 
 class ProfessorController extends Controller
 {
@@ -24,7 +24,14 @@ class ProfessorController extends Controller
       return view("professor.formulario", compact('professor','areas'));
     }
 
-    function gravar(Request $request) {
+    function gravar(ProfessorRequest $request) {
+      // não usarei o validate, estou utilizando ProfessoRequest
+      // $validatedData = $request->validate(
+      //     [
+      //         'nome' => 'required|min:10',
+      //         'email' => 'required|email:rfc,dns'
+      //     ]);
+
       $id = $request->input('id');
       if ($id==0) {
         $professor = new Professor();
