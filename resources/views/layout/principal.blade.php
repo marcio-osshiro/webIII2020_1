@@ -45,12 +45,28 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ action('AreaController@lista') }}">Área<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ action('ProfessorController@lista') }}">Professor<span class="sr-only">(current)</span></a>
-      </li>
+
+      @if (Route::has('login'))
+        @auth
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ action('AreaController@lista') }}">Área<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ action('ProfessorController@lista') }}">Professor<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{url('/logout')}}">Sair<span class="sr-only">(current)</span></a>
+          </li>
+        @else
+          <li class="nav-item active">
+            <a class="nav-link" href="{{route('login')}}">Entrar<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{route('register')}}">Registrar<span class="sr-only">(current)</span></a>
+          </li>
+        @endauth
+      @endif
+
     </ul>
   </div>
 </nav>

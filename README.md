@@ -3,3 +3,5 @@
 <p>1-Baixe o projeto</p>
 <p>2-Execute o comando: php artisan serve</p>
 <p>3-No navegador, abra na a seguinte url: http://localhost:8000</p>
+<p>Login: admin@gmail.com   Password: admin</p>
+<p>Login: usuario@gmail.com   Password: usuario001</p>

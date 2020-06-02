@@ -8,6 +8,10 @@ use App\Area;
 class AreaController extends Controller
 {
     //
+    public function __construct() {
+      $this->middleware('auth');
+    }
+
     function lista() {
       $areas = Area::all();
       // visão localizado em resources/views

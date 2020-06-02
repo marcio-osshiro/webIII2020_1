@@ -28,3 +28,8 @@ Route::get('/professor/novo', 'ProfessorController@novo');
 Route::post('/professor/gravar', 'ProfessorController@gravar');
 Route::get('/professor/editar/{id}', 'ProfessorController@editar');
 Route::get('/professor/excluir/{id}', 'ProfessorController@excluir');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
