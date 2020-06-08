@@ -28,6 +28,9 @@ Route::get('/professor/novo', 'ProfessorController@novo');
 Route::post('/professor/gravar', 'ProfessorController@gravar');
 Route::get('/professor/editar/{id}', 'ProfessorController@editar');
 Route::get('/professor/excluir/{id}', 'ProfessorController@excluir');
+Route::get('/professor/enviar/{id}', 'ProfessorController@enviar');
+Route::post('/professor/enviarMensagem', 'ProfessorController@enviarMensagem');
+
 
 Auth::routes();
 

@@ -7,6 +7,8 @@ use App\Professor;
 use App\Area;
 use Illuminate\Support\Str;
 use App\Http\Requests\ProfessorRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MensagemProfessor;
 
 class ProfessorController extends Controller
 {
@@ -14,7 +16,7 @@ class ProfessorController extends Controller
     public function __construct() {
       $this->middleware('auth');
     }
-    
+
     //
     function lista() {
       $professores = Professor::all();
@@ -69,4 +71,20 @@ class ProfessorController extends Controller
       $professor->delete();
       return redirect()->action('ProfessorController@lista');
     }
+
+    function enviar($id) {
+      $professor = Professor::find($id);
+      return view("professor.mensagem", compact('professor'));
+    }
+
+    function enviarMensagem() {
+      $professor_id = $_POST['id'];
+      $mensagem = $_POST['mensagem'];
+      $professor = Professor::find($professor_id);
+      Mail::to($professor->email)
+        ->send(new MensagemProfessor($professor, $mensagem));
+      return redirect()->action('ProfessorController@lista');
+
+    }
+
 }
