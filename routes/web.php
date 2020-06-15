@@ -22,6 +22,7 @@ Route::get('/area/novo', 'AreaController@novo');
 Route::post('/area/gravar', 'AreaController@gravar');
 Route::get('/area/editar/{id}', 'AreaController@editar');
 Route::get('/area/excluir/{id}', 'AreaController@excluir');
+Route::get('/area/report', 'AreaController@report');
 
 Route::get('/professor', 'ProfessorController@lista');
 Route::get('/professor/novo', 'ProfessorController@novo');

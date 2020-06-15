@@ -30,7 +30,7 @@
         padding-top: 5rem;
       }
       .starter-template {
-        padding: 3rem 1.5rem;
+        padding: 0rem 1.5rem;
       }
     </style>
     <!-- Custom styles for this template -->

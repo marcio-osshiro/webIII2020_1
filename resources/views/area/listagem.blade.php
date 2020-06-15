@@ -1,7 +1,10 @@
 @extends('layout.principal')
 
 @section('conteudo')
-  <h1>Listagem de áreas</h1>
+  <h1>Listagem de áreas
+    <a href="{{ action('AreaController@report')}}" class="btn btn-primary">Imprimir</a>
+
+  </h1>
   <a href="{{ action('AreaController@novo')}}" class="btn btn-primary">Nova Área</a>
   <table class="table table-striped table-bordered table-sm">
     <thead class="thead-dark">
@@ -24,4 +27,5 @@
       @endforeach
     </tbody>
   </table>
+  {{ $areas->links() }}
 @endsection

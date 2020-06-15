@@ -13,7 +13,8 @@ class AreaController extends Controller
     }
 
     function lista() {
-      $areas = Area::all();
+      //$areas = Area::all();
+      $areas = Area::paginate(10);
       // visão localizado em resources/views
       return view("area.listagem", compact('areas'));
     }
@@ -44,6 +45,15 @@ class AreaController extends Controller
       $area = Area::find($id);
       $area->delete();
       return redirect()->action('AreaController@lista');
+    }
+
+    function report() {
+      $areas = Area::all();
+
+      $pdf = app('dompdf.wrapper');
+      $pdf->getDomPDF()->set_option("enable_php", true);
+      $pdf->loadView('area.report', compact('areas'));
+      return $pdf->download("relatorioArea.pdf");
     }
 
 
